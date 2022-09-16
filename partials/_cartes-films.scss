@@ -1,0 +1,31 @@
+@use "variables";
+
+//Étape 8: Requis des cartes
+@use "mixins/text";
+
+//Importer le module de couleur
+@use "sass:color";
+
+//Étape 3: Requis des cartes
+.card {
+    padding: 5px;
+    margin: 5px;
+}
+
+//Étape 4 et 5: Requis des cartes
+.card__btn {
+    width: 100%;
+    padding: 5px 0px;
+    border: none;
+    background-color: color.adjust(variables.$primary, $lightness: 15%);
+    //Étape 7: Requis des cartes
+    color: color.complement(variables.$primary);
+    //Inclure le mixin du fichier text
+    @include text.small-cap;
+}
+
+//Étape 6: Requis des cartes
+.card__btn:hover {
+    background-color: color.adjust(variables.$primary, $lightness: 25%);
+}
+

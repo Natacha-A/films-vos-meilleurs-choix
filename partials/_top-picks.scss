@@ -1,12 +1,22 @@
 @use "variables";
 
+//Importer le fichier des mixins
+@use "mixins/text";
+
+//Importer le module de couleur
+@use "sass:color";
+
 .top-picks { 
   position: relative;
-  padding: 50px; 
+  padding: 50px;
+  //Étape 1: couleur de fond pale
+  background-color: color.adjust(variables.$primary, $lightness: 5%); 
 
+  //Étape 2: couleur de text
   &__header {
     border-left: solid 5px variables.$primary;
     padding-left: 20px;
+    color: white;
   }
 
   &__title {
@@ -14,8 +24,10 @@
     font-family: arial;
   }
   
+  //Étape 3: Inclure le mixin
   &__desc {
     opacity: 0.7;
+    @include text.small-cap;
   }
   
   &__wrapper {
